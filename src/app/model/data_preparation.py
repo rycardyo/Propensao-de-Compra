@@ -17,6 +17,7 @@ class DataPreparation:
     
     def _encode_features(self):
         ...
+        
     def check_dataset_structure(self):
         
         if self.dataset.columns:
