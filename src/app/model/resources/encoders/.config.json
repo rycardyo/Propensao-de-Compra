@@ -1,0 +1,4 @@
+{
+    "mapping" : ["policy_sales_channel", "region_code", "sexo_feminino", "vehicle_age", "vehicle_damage"],
+    "scallers" : ["age", "annual_premium", "faixa_etaria" ,"vintage"]
+} 
