@@ -1,4 +1,16 @@
 {
-    "mapping" : ["policy_sales_channel", "region_code", "sexo_feminino", "vehicle_age", "vehicle_damage"],
-    "scallers" : ["age", "annual_premium", "faixa_etaria" ,"vintage"]
+    "mappings": {
+        "policy_sales_channel" : "./mappings/policy_sales_channel.json",
+        "region_code"       : "./mappings/region_code.json",
+        "sexo_feminino"     : "./mappings/sexo_feminino.json",
+        "vehicle_age"       : "./mappings/vehicle_age.json",
+        "vehicle_damage"    : "./mappings/vehicle_damage.json"
+    },
+
+    "saclers" : {
+        "age" : "./scalers/age_scaler.pkl",
+        "annual_premium" : "./scalers/annual_premium_scaler.pkl",
+        "faixa_etaria" : "./scalers/faixa_etaria_scaler.pkl",
+        "vintage" : "./scalers/vintage_scaler.pkl"
+    }
 } 
