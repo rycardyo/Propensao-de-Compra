@@ -1,9 +1,13 @@
 import streamlit as st 
 import pandas as pd 
 import json
+import os 
+from datetime import datetime
 
 def check_columns(df):
-    required_columns = ['CustomerID', 'Name', 'Email', 'Phone']
+    with open('../model/resources/dataset/.required_columns.json', 'r') as f:
+        required_columns = json.load(f)["required_columns"]
+
     missing_columns = [col for col in required_columns if col not in df.columns]
     
     if missing_columns:
@@ -24,13 +28,19 @@ if uploaded_file:
     if check_columns(df):
         st.dataframe(df.sample(frac=.7))
 
-make_predictiosn = st.button('Make Predictions')
-if make_predictiosn:
+make_predictions = st.button('Make Predictions')
 
-    df.fillna(value = '', inplace=True)
-    json_df = df.to_dict(orient='records') 
-    with open('./payload_items/payload.json', 'w') as f:
+if make_predictions:
+    try:
+        df.fillna(value = '', inplace=True)
+        attatchedFName = datetime.now().strftime('%d_%m_%Y %H-%M:-%s')
+        attatchedFPath = f'./payload_items/{attatchedFName}.csv'
+        json_df = df.to_csv(attatchedFPath) 
         
-        json.dump(json_df, f, indent=4)
+        st.switch_page('pages/1_model_predictions.py', 
+                    query_params={'datasetFName' : attatchedFPath})
+        
+    except NameError:
+        st.warning('Para realizar predições, é necessário que um arquivo seja enviado.Por favor, anexe um arquivo e tente novamente')
 
-    st.switch_page('pages/1_model_predictions.py')
+    
