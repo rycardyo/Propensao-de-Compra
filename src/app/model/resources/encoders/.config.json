@@ -7,7 +7,7 @@
         "vehicle_damage"    : "./mappings/vehicle_damage.json"
     },
 
-    "saclers" : {
+    "scalers" : {
         "age" : "./scalers/age_scaler.pkl",
         "annual_premium" : "./scalers/annual_premium_scaler.pkl",
         "faixa_etaria" : "./scalers/faixa_etaria_scaler.pkl",

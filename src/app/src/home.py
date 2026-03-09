@@ -8,7 +8,8 @@ def check_columns(df):
     with open('../model/resources/dataset/.required_columns.json', 'r') as f:
         required_columns = json.load(f)["required_columns"]
 
-    missing_columns = [col for col in required_columns if col not in df.columns]
+    df.columns = [x.lower() for x in df.columns]    
+    missing_columns = [col.lower() for col in required_columns if col not in df.columns]
     
     if missing_columns:
         st.error(f'Missing columns: {", ".join(missing_columns)}')

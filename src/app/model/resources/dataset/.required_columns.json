@@ -1,0 +1,8 @@
+{
+    "required_columns" : ["gender", "age", "driving_license", "region_code", "previously_insured", 
+                        "vehicle_age", "vehicle_damage", "annual_premium", "policy_sales_channel", "vintage", "response"],
+
+    "inference_columns" : ["driving_license", "previously_insured", 
+                            "entre_30_50", "region_code_encoded", "policy_sales_channel_encoded", "sexo_feminino_encoded", 
+                            "vehicle_damage_encoded", "vintage_encoded", "annual_premium_encoded", "age_encoded", "faixa_etaria_encoded"] 
+}
