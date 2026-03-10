@@ -26,7 +26,7 @@ class DataPreparation:
         '''
 
         self.expected_columns = ['']
-        self.dataset = dataset 
+        self.dataset = dataset.copy() 
         self.encoders_path = encoders_path
         self.model_path = model_path
         self.verbose    = verbose  
