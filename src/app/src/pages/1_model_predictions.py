@@ -6,10 +6,13 @@ import os
 
 root_path = Path(__file__).resolve().parents[2]
 sys.path.append(os.path.join(root_path, 'model/src'))
-print(root_path)
+
 from model_prediction  import RankerModel
 from data_preparation  import DataPreparation
 
+st.set_page_config(
+    layout='wide'
+)
 
 st.title('Ranked List')
 st.markdown(''' Lista de clientes rankeados por propensão de compra (%)''')
@@ -71,5 +74,5 @@ dataset_result   = st.data_editor(
 
 salvar_resultado = st.button(label = "Save Results")
 if salvar_resultado:
-    dataset_result.to_csv(os.path.join(root_path, 'data/results.csv'))
+    dataset_result.to_csv(os.path.join(root_path, 'data/actions/lastAction/results.csv'))
 

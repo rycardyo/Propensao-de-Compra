@@ -6,6 +6,9 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).resolve().parents[1]
+st.set_page_config(
+    layout='wide'
+)
 
 def check_columns(df):
     with open('../model/resources/dataset/.required_columns.json', 'r') as f:
@@ -36,10 +39,24 @@ def get_last_action_path(actions_path : str = 'data/actions'):
     
     return False
 
-col_left, btn1, btn2, col_right = st.columns([2,1,1,2])
 
-with btn1:
-    back_to_the_last = st.button(label = "Retomar ultimo Trabalho")
+st.markdown('# O que você deseja fazer hoje?')
+st.markdown('----')
+
+st.markdown(' ')
+
+title1, title2 =  st.columns([2,2], vertical_alignment='bottom')
+btn1, btn2     =  st.columns([2,2], vertical_alignment='bottom')
+
+with title1:
+    st.markdown("### Dar andamento na ultima ação")
+    st.markdown("---")
+    
+with btn1:    
+    back_to_the_last = st.button(label = "Retomar ultimo Trabalho",
+
+                                 width=800,
+                                 )
     if back_to_the_last:
         if get_last_action_path():
             st.switch_page('pages/1_model_predictions.py', 
@@ -49,33 +66,39 @@ with btn1:
         else:
             st.error('Não ha trabalhos registrados')
 
+with title2:
+    st.markdown('### Analisar novos clientes')
+    st.markdown('----')
+    
+
 with btn2: 
     uploaded_file = st.file_uploader('Upload a customers list', type = ['csv', 'xlsx'])
-    make_predictions = st.button('Make Predictions')
+    make_predictions = st.button('Make Predictions',
+                                 width=800)
 
 
-    if uploaded_file:
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
-        else:
-            df = pd.read_excel(uploaded_file)
+if uploaded_file:
+    if uploaded_file.name.endswith('.csv'):
+        df = pd.read_csv(uploaded_file)
+    else:
+        df = pd.read_excel(uploaded_file)
 
-        if check_columns(df):
-            st.dataframe(df.sample(frac=.7))
+    if check_columns(df):
+        st.dataframe(df.sample(frac=.7))
 
 
-    if make_predictions:
-        try:
-            df.fillna(value = '', inplace=True)
-            attatchedFName = datetime.now().strftime('%d_%m_%Y %H-%M:-%s')
-            attatchedFPath = f'./payload_items/{attatchedFName}.csv'
-            json_df = df.to_csv(attatchedFPath) 
-            
-            st.switch_page('pages/1_model_predictions.py', 
-                        query_params={'datasetFPath' : attatchedFPath,
-                                      'action'  : 'inference'})
-            
-        except NameError:
-            st.warning('Para realizar predições, é necessário que um arquivo seja enviado.Por favor, anexe um arquivo e tente novamente')
+if make_predictions:
+    try:
+        df.fillna(value = '', inplace=True)
+        attatchedFName = datetime.now().strftime('%d_%m_%Y %H-%M:-%s')
+        attatchedFPath = f'./payload_items/{attatchedFName}.csv'
+        json_df = df.to_csv(attatchedFPath) 
+        
+        st.switch_page('pages/1_model_predictions.py', 
+                    query_params={'datasetFPath' : attatchedFPath,
+                                    'action'  : 'inference'})
+        
+    except NameError:
+        st.warning('Para realizar predições, é necessário que um arquivo seja enviado.Por favor, anexe um arquivo e tente novamente')
 
-    
+

@@ -1,10 +1,10 @@
 ,gender,age,driving_license,region_code,previously_insured,vehicle_age,vehicle_damage,annual_premium,policy_sales_channel,vintage,Propensity_to_buy,Status
-11,Female,42,1,28.0,0,1-2 Year,Yes,38793.0,26.0,236,54.48,Aceita com desconto
+11,Female,42,1,28.0,0,1-2 Year,Yes,38793.0,26.0,236,54.48,🫀 Aceita
 8,Female,46,1,8.0,0,1-2 Year,Yes,23210.0,26.0,163,53.03,Pendente
-60,Female,29,1,30.0,0,1-2 Year,Yes,21969.0,154.0,38,52.57,Pendente
+60,Female,29,1,30.0,0,1-2 Year,Yes,21969.0,154.0,38,52.57,🫀 Aceita
 25,Female,46,1,28.0,0,1-2 Year,Yes,49022.0,26.0,144,51.7,Pendente
 40,Male,50,1,28.0,0,1-2 Year,Yes,38675.0,26.0,226,51.46,Pendente
-4,Male,37,1,14.0,0,1-2 Year,Yes,50924.0,124.0,207,51.22,Pendente
+4,Male,37,1,14.0,0,1-2 Year,Yes,50924.0,124.0,207,51.22,🫀 Aceita
 37,Male,50,1,28.0,0,1-2 Year,Yes,37749.0,124.0,255,51.14,Pendente
 18,Female,50,1,46.0,0,1-2 Year,Yes,26275.0,26.0,161,51.09,Pendente
 7,Female,42,1,28.0,0,1-2 Year,Yes,47420.0,26.0,104,50.98,Pendente
@@ -13,7 +13,7 @@
 27,Male,47,1,28.0,0,1-2 Year,Yes,34303.0,26.0,104,49.91,Pendente
 49,Male,46,1,28.0,0,1-2 Year,Yes,49841.0,26.0,57,49.67,Pendente
 30,Male,46,1,28.0,0,1-2 Year,Yes,28718.0,26.0,154,49.53,Pendente
-21,Female,54,1,46.0,0,1-2 Year,Yes,28738.0,156.0,208,49.07,Pendente
+21,Female,54,1,46.0,0,1-2 Year,Yes,28738.0,156.0,208,49.07,🫀 Aceita
 44,Female,59,1,28.0,0,1-2 Year,Yes,33524.0,150.0,227,49.07,Pendente
 62,Female,29,1,23.0,0,1-2 Year,Yes,29089.0,156.0,91,48.29,Pendente
 52,Male,32,1,15.0,0,< 1 Year,Yes,38753.0,152.0,257,48.19,Pendente
