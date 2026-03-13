@@ -23,7 +23,7 @@ def check_columns(df):
 
     return True
 
-def get_last_action_path(actions_path : str = 'data/actions'):
+def get_last_action_path(actions_path : str = 'data/actions/lastAction'):
     ''' 
         Verify if exists some file in 'data/actions
     '''
@@ -40,34 +40,39 @@ def get_last_action_path(actions_path : str = 'data/actions'):
     return False
 
 
-st.markdown('# O que você deseja fazer hoje?')
+st.markdown('# O que você deseja fazer hoje? 🗓️')
 st.markdown('----')
-
 st.markdown(' ')
+
+
+_, f1, _ = st.columns([1,2,1]) 
+with f1:
+    st.markdown('#### Visualizar resultados da campanha Insurance Health Crosselling 📈')
+    st.markdown(' ')
+    st.markdown(' ')
+
+    insuranceHealthCross = st.button(label = 'Atuar na campanha principal',width=800)
+
+    st.markdown(' ')
+    st.markdown(' ')
+
+st.markdown('----')
 
 title1, title2 =  st.columns([2,2], vertical_alignment='bottom')
 btn1, btn2     =  st.columns([2,2], vertical_alignment='bottom')
 
 with title1:
-    st.markdown("### Dar andamento na ultima ação")
+    st.markdown("### Dar andamento na ultima ação ⏳" )
     st.markdown("---")
     
 with btn1:    
-    back_to_the_last = st.button(label = "Retomar ultimo Trabalho",
-
-                                 width=800,
-                                 )
-    if back_to_the_last:
-        if get_last_action_path():
-            st.switch_page('pages/1_model_predictions.py', 
-                                query_params={'datasetFPath' : get_last_action_path(),
-                                            'action' : 'last_action'})
-
-        else:
-            st.error('Não ha trabalhos registrados')
+    st.markdown('Continue trabalhando nos clientes adicionados pela ultima vez')
+    
+    back_to_the_last = st.button(label = "Retomar ultimo Trabalho" ,
+                                 width=800)
 
 with title2:
-    st.markdown('### Analisar novos clientes')
+    st.markdown('### Analisar novos clientes 🔎')
     st.markdown('----')
     
 
@@ -76,6 +81,29 @@ with btn2:
     make_predictions = st.button('Make Predictions',
                                  width=800)
 
+
+# Actions
+
+if insuranceHealthCross:
+    insuranceHealthCrossFPath = os.path.join(ROOT_PATH, 'data/actions/insuranceHealthCross/results.csv') 
+
+    st.switch_page(
+        'pages/1_model_predictions.py',
+        query_params={
+            'datasetFPath' : insuranceHealthCrossFPath,
+            'action'   : 'insuranceHealthCross'
+        }
+    )
+
+
+if back_to_the_last:
+        if get_last_action_path():
+            st.switch_page('pages/1_model_predictions.py', 
+                                query_params={'datasetFPath' : get_last_action_path(),
+                                            'action' : 'last_action'})
+
+        else:
+            st.error('Não ha trabalhos registrados')
 
 if uploaded_file:
     if uploaded_file.name.endswith('.csv'):
