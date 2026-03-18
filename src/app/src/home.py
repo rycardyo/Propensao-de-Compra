@@ -11,7 +11,8 @@ st.set_page_config(
 )
 
 def check_columns(df):
-    with open('../model/resources/dataset/.required_columns.json', 'r') as f:
+
+    with open(os.path.join(ROOT_PATH, 'model/resources/dataset/.required_columns.json'), 'r') as f:
         required_columns = json.load(f)["required_columns"]
 
     df.columns = [x.lower() for x in df.columns]    
