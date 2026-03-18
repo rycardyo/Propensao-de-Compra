@@ -89,7 +89,7 @@ if insuranceHealthCross:
     insuranceHealthCrossFPath = os.path.join(ROOT_PATH, 'data/actions/insuranceHealthCross/results.csv') 
 
     st.switch_page(
-        'pages/1_model_predictions.py',
+        os.path.join(ROOT_PATH,'src/pages/1_model_predictions.py'),
         query_params={
             'datasetFPath' : insuranceHealthCrossFPath,
             'action'   : 'insuranceHealthCross'
@@ -99,7 +99,7 @@ if insuranceHealthCross:
 
 if back_to_the_last:
         if get_last_action_path():
-            st.switch_page('pages/1_model_predictions.py', 
+            st.switch_page(os.path.join(ROOT_PATH, 'src/pages/1_model_predictions.py'), 
                                 query_params={'datasetFPath' : get_last_action_path(),
                                             'action' : 'last_action'})
 
@@ -120,7 +120,7 @@ if make_predictions:
     try:
         df.fillna(value = '', inplace=True)
         attatchedFName = datetime.now().strftime('%d_%m_%Y %H-%M:-%s')
-        attatchedFPath = f'./payload_items/{attatchedFName}.csv'
+        attatchedFPath = os.path.join(ROOT_PATH, f'src/payload_items/{attatchedFName}.csv')
         json_df = df.to_csv(attatchedFPath) 
         
         st.switch_page('pages/1_model_predictions.py', 
