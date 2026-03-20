@@ -17,12 +17,28 @@ Fonte Dataset:
 ------ 
 ## 2.0 Descrição da solução
 
-### 2.1 - EDA (Exploratory Data Analisys) 
+### 2.1 - EDA (Exploratory Data Analisys) - Top Insigths 
+
+* 1. Clientes com veiculos mais antigos no geral, possuem uma maior tendencia a adquirir o seguro.
+
+* 2. Clientes que já possuem seguro veicular, possuem uma propensão de compra muuito menor, quando comparados a clientes que ja possuem seguro. 
+
+* 3. Clientes que ja tiveram algum sinistro registrado, possuem uma propensão maior a adquirir um seguro veicular. 
+
+* 4. A regiao 28 concentra quase metade (42%) dos clientes com intenção de adquirir um 
+seguro veicular. 
+
+* 5. Clientes na faixa de 30-40 anos são mais propensos a adquirir um seguro, quando comparado aos demais grupos de idade.
+
+* 6. Não há relação entre o tempo do cliente na base e sua propensão em adquirir um seguro veicular. 
+    - **Recomendação:** Avaliar se as ações de construção de relacionamento realizadas pelo CS estão sendo efetivas, uma vez que a confiança do cliente na marca
+    aparenta não crescer com seu tempo na base. 
+
 
 ### 2.2 - Feature Egeneering 
 
 ### 2.3 - Modelagem em top ranking e metricas de avaliação. 
-
+    - 
 ### 2.4 - Data APP com da solução
     - Docker Container
     - Streamlit
