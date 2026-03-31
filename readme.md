@@ -65,17 +65,6 @@ No cenário de ranqueamento estamos interessados não na classificação em si, 
 
 Para nosso problema, onde o objetivo é maximizar a conversão dos 20 mil clientes contatados, desejamos otimizar nossa top 20k precision, o que irá garantir que ao escolher 20 mil clientes para entrar em contato, seja possível garantir que teremos o maior número de conversões. 
 
-Para os 20k Clientes, o xgBoost apresentou o resultado:
-
-| model | precision_top_20k | customers | Revenue |
-| :---  | :---: | :---: | :--- |
-| XGBoost | 0.33585 | 6717 | R$ 12.125.078.36 |
-| Afraid_Business_Perspective | 0.25945 | 5189 | R$ 9.366.835.14 |
-| RFM_Business_Perspective | 0.21835 | 4367 | R$ 7.883.015.81 |
-| Demographic_Business_Perspective | 0.16470 | 3294 | R$ 5.946.108.10 |
-| Random Guess | 0.12270 | 2454 | R$ 4.429.796.38 |
-
-
 ### 2.3 - Data APP com da solução
 Toda a solução foi encapsulada em um data app streamlit, e disponibilizada em: [PropensityToByDataApp](https://propensao-de-compra-production.up.railway.app/)
 
