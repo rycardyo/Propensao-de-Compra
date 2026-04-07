@@ -88,12 +88,14 @@ def getSampleData():
     
     return content.sample(1).to_csv(index=False).encode('utf-8')
 
+st.markdown('----')
 st.download_button(
     label = 'Baixar modelo de dados para predições',
     data = getSampleData(),
     file_name = 'sampleDataset.csv',
     mime = 'text/csv',
-    icon=':material/download:'
+    icon=':material/download:',
+    width='stretch'
 )
 
 # Actions
