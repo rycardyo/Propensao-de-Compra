@@ -82,6 +82,19 @@ with btn2:
     make_predictions = st.button('Make Predictions',
                                  width=800)
 
+# modelo de dados para predições 
+def getSampleData():
+    content = pd.read_csv(os.path.join(ROOT_PATH, 'model/resources/test/sampleDataset.csv'))
+    
+    return content.sample(1).to_csv(index=False).encode('utf-8')
+
+st.download_button(
+    label = 'Baixar modelo de dados para predições',
+    data = getSampleData(),
+    file_name = 'sampleDataset.csv',
+    mime = 'text/csv',
+    icon=':material/download:'
+)
 
 # Actions
 
