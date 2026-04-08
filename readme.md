@@ -9,7 +9,7 @@ No entando, restam mais de 80 mil clientes ainda não abordados, além dos novos
 
 Para lidar com o  desafio de bater a meta de vendas do comercial para o novo produto e ainda assim manter a conformidade orçamentária, o diretor comercial solicitou ao time de dados um produto capaz de identificar os clientes que realmente desejam adquirir o seguro veicular, para garantir que sua ação com 20 000 clientes seja o mais assertiva possível. 
 
-Para resolver este problema nasceu este projeto, uma solução capaz de avaliar o indice de propensão de compra de cada cliente da base, que se mostrou **300% mais assertivo** que uma abordagem aleatória e **30% mais acurado** que a melhor premissa de negócio, com potencial de alavancar o faturamento anual estimado da ação em **R$ 8 Milhões** caso fosse usada a **abordagem aleatória** e em  **R$ 3 Milhões no caso de uso da melhor premissa de negócio**
+Para resolver este problema nasceu este projeto, uma solução capaz de avaliar o indice de propensão de compra de cada cliente da base, que se mostrou **300% mais assertivo** que uma abordagem aleatória e **20% mais acurado** que a melhor premissa de negócio, com potencial de alavancar o faturamento anual estimado da ação em **R$ 2.5 Milhões quando comparado com a melhor premissa de negócio**
 
 O modelo final, foi disponibilizado em uma aplicação web, a qual é acessível via url:  [PropensityToByDataApp](https://propensao-de-compra-production.up.railway.app/)
 Fonte Dataset: 
@@ -107,15 +107,20 @@ No entanto **somente as métricas não são suficientes** para avaliar o modelo,
 A partir destas premissas é possível, utilizando as mericas precision top k e recall top k, avaliar o modelo de machine learning. 
 
 **Tabela comparativa das soluções**
-| model | dataset | precision_top_k | business_customers_revenue |
-| :--- | :--- | :--- | :--- |
-| XGBoost | test | 0.335856717 | R$ 12.125.078,36 |
-| Afraid_Business_Perspective | test | 0.259455189 | R$ 9.366.835,14 |
-| RFM_Business_Perspective | test | 0.218354367 | R$ 7.883.015,81 |
-| Demographic_Business_Perspective | test | 0.164703294 | R$ 5.946.108,10 |
-| Random Guess | test | 0.122702454 | R$ 4.429.796,38 |
+| model | dataset | precision_top_k | converted_customers | business_customers_revenue |
+| :--- | :--- | :--- | :--- | :--- |
+| XGBoost | test | 0.335856717 | 6 375 | R$ 15.937.500,00 |
+| Afraid_Business_Perspective | test | 0.259455189 | 5 352 | R$ 13.380.000,00 |
+| RFM_Business_Perspective | test | 0.218354367 | 3 588 | R$ 8.970.000,00 |
+| Demographic_Business_Perspective | test | 0.164703294 | 2 462 | R$ 6.155.000,00 |
+| Random Guess | test | 0.122702454 | 1 684| R$ 4.210.000,00 |
+
+**Nota sobre a Receita Estimada:** *Como o dataset original não fornece o valor real do novo produto de seguro veicular, os cálculos de impacto financeiro (business_customers_revenue) foram projetados assumindo uma premissa conservadora de Ticket Médio Anual de R$ 2.500,00 por apólice vendida.*
 
 ---- 
 **Comparativo - Visão grafica**
 
 ![alt text](image-1.png)
+
+Como demonstrado no gráfico de Recall, ao acionar apenas os 20 mil clientes recomendados pelo modelo (cerca de 25% da base), conseguimos atingir ~78% de todos os clientes interessados, maximizando o ROI da campanha e poupando esforço de vendas com clientes de baixa propensão
+
