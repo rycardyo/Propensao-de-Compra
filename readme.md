@@ -109,11 +109,11 @@ A partir destas premissas é possível, utilizando as mericas precision top k e 
 **Tabela comparativa das soluções**
 | model | dataset | precision_top_k | business_customers_revenue |
 | :--- | :--- | :--- | :--- |
-| XGBoost | test | 0.335856717 | R$ 12.125.078.361 |
-| Afraid_Business_Perspective | test | 0.259455189 | R$ 9.366.835.141 |
-| RFM_Business_Perspective | test | 0.218354367 | R$ 7.883.015.811 |
-| Demographic_Business_Perspective | test | 0.164703294 | R$ 5.946.108.100 |
-| Random Guess | test | 0.122702454 | R$ 4.429.796.38 |
+| XGBoost | test | 0.335856717 | R$ 12.125.078,36 |
+| Afraid_Business_Perspective | test | 0.259455189 | R$ 9.366.835,14 |
+| RFM_Business_Perspective | test | 0.218354367 | R$ 7.883.015,81 |
+| Demographic_Business_Perspective | test | 0.164703294 | R$ 5.946.108,10 |
+| Random Guess | test | 0.122702454 | R$ 4.429.796,38 |
 
 ---- 
 **Comparativo - Visão grafica**
